@@ -169,6 +169,53 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Migrations\202203182131089_InitialModel.cs" />
+    <Compile Include="Migrations\202203182131089_InitialModel.Designer.cs">
+      <DependentUpon>202203182131089_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203182146411_AddIsSubscribeToCustomer.cs" />
+    <Compile Include="Migrations\202203182146411_AddIsSubscribeToCustomer.Designer.cs">
+      <DependentUpon>202203182146411_AddIsSubscribeToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203182201293_AddMembershipType.cs" />
+    <Compile Include="Migrations\202203182201293_AddMembershipType.Designer.cs">
+      <DependentUpon>202203182201293_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203182207139_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202203182207139_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>202203182207139_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203182233437_AddAnnotationsToCustomerName.cs" />
+    <Compile Include="Migrations\202203182233437_AddAnnotationsToCustomerName.Designer.cs">
+      <DependentUpon>202203182233437_AddAnnotationsToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203200153518_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\202203200153518_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>202203200153518_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203200156112_PopulateNameInMembershipTypes.cs" />
+    <Compile Include="Migrations\202203200156112_PopulateNameInMembershipTypes.Designer.cs">
+      <DependentUpon>202203200156112_PopulateNameInMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203200201520_PopulateRemainingNameInMembershipTypes.cs" />
+    <Compile Include="Migrations\202203200201520_PopulateRemainingNameInMembershipTypes.Designer.cs">
+      <DependentUpon>202203200201520_PopulateRemainingNameInMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203200207563_AddBirthDateToCustomer.cs" />
+    <Compile Include="Migrations\202203200207563_AddBirthDateToCustomer.Designer.cs">
+      <DependentUpon>202203200207563_AddBirthDateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203202117396_AddMorePropertiesToMovie.cs" />
+    <Compile Include="Migrations\202203202117396_AddMorePropertiesToMovie.Designer.cs">
+      <DependentUpon>202203202117396_AddMorePropertiesToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203202211090_PopulateGenresTable.cs" />
+    <Compile Include="Migrations\202203202211090_PopulateGenresTable.Designer.cs">
+      <DependentUpon>202203202211090_PopulateGenresTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -245,6 +292,8 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -261,6 +310,41 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202203182131089_InitialModel.resx">
+      <DependentUpon>202203182131089_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203182146411_AddIsSubscribeToCustomer.resx">
+      <DependentUpon>202203182146411_AddIsSubscribeToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203182201293_AddMembershipType.resx">
+      <DependentUpon>202203182201293_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203182207139_PopulateMembershipTypes.resx">
+      <DependentUpon>202203182207139_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203182233437_AddAnnotationsToCustomerName.resx">
+      <DependentUpon>202203182233437_AddAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203200153518_AddNameToMembershipType.resx">
+      <DependentUpon>202203200153518_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203200156112_PopulateNameInMembershipTypes.resx">
+      <DependentUpon>202203200156112_PopulateNameInMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203200201520_PopulateRemainingNameInMembershipTypes.resx">
+      <DependentUpon>202203200201520_PopulateRemainingNameInMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203200207563_AddBirthDateToCustomer.resx">
+      <DependentUpon>202203200207563_AddBirthDateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203202117396_AddMorePropertiesToMovie.resx">
+      <DependentUpon>202203202117396_AddMorePropertiesToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203202211090_PopulateGenresTable.resx">
+      <DependentUpon>202203202211090_PopulateGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

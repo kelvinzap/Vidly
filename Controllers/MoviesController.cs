@@ -1,33 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Microsoft.Ajax.Utilities;
 using Vidly.Models;
-using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies
-        public ActionResult Random()
-        {
-            var movie = new Movie() { Name = "Shrek!" };
-            var customers = new List<Customer>
-            {
-                new Customer() { Name = "Customer 1" },
-                new Customer() { Name = "Customer 2" }
-            };
+        private readonly ApplicationDbContext _context;
 
-            var viewModel = new RandomMovieViewModel()
-            {
-                Movie = movie,
-                Customers = customers
-            };
-            return View(viewModel);
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
 
         //released
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
@@ -36,6 +27,19 @@ namespace Vidly.Controllers
             return Content(year + "/" + month);
         }
 
+
+        //Details
+        public ActionResult Details(int Id)
+        {
+            if (Id == 0)
+                return HttpNotFound();
+
+            var movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == Id);
+            return View(movie);
+
+
+
+        }
         //edit
         public ActionResult Edit(int id)
         {
@@ -43,15 +47,14 @@ namespace Vidly.Controllers
         }
 
         //movies
-        public ActionResult Index(int? pageIndex, string sortBy)
+        public ActionResult Index()
         {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
+            var movies = _context.Movies
+                .Include(c => c.Genre)
+                .ToList();
 
-            if (sortBy.IsNullOrWhiteSpace())
-                sortBy = "Name";
-
-            return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+            return View(movies);
         }
+
     }
 }
