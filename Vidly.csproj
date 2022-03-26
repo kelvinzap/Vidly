@@ -213,9 +213,14 @@
     <Compile Include="Migrations\202203202211090_PopulateGenresTable.Designer.cs">
       <DependentUpon>202203202211090_PopulateGenresTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203261520309_AddedDataAnnotationsToMovieProperties.cs" />
+    <Compile Include="Migrations\202203261520309_AddedDataAnnotationsToMovieProperties.Designer.cs">
+      <DependentUpon>202203261520309_AddedDataAnnotationsToMovieProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
@@ -348,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203202211090_PopulateGenresTable.resx">
       <DependentUpon>202203202211090_PopulateGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203261520309_AddedDataAnnotationsToMovieProperties.resx">
+      <DependentUpon>202203261520309_AddedDataAnnotationsToMovieProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
