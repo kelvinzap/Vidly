@@ -62,11 +62,12 @@ namespace Vidly.Controllers
         }
 
         //movies
+        [OutputCache(Duration = 0, VaryByParam = "*", NoStore = true)]
         public ActionResult Index()
         {
-            if(User.IsInRole(RoleName.CanManageMovies))
+            if (User.IsInRole(RoleName.CanManageMovies))
                 return View("List");
-               
+
             return View("ReadOnlyList");
 
         }

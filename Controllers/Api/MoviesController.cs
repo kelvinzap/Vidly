@@ -41,13 +41,13 @@ namespace Vidly.Controllers.Api
 
         //POST /api/movies
         [HttpPost]
-        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
             var movie = Mapper.Map<MovieDto, Movie>(movieDto);
+            movie.DateAdded = DateTime.Now;
             _context.Movies.Add(movie);
             _context.SaveChanges();
 

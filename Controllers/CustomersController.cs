@@ -1,8 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+
 
 namespace Vidly.Controllers
 {
@@ -65,6 +68,14 @@ namespace Vidly.Controllers
         // customers
         public ActionResult Index()
         {
+            //Doesn't affect view, just a snippet
+
+            if (MemoryCache.Default[GenresCache.Name] == null)
+            {
+                MemoryCache.Default[GenresCache.Name] = _context.Genres.ToList();
+            }
+
+            var genres = MemoryCache.Default[GenresCache.Name] as IEnumerable<Genre>;
             return View();
         }
 
